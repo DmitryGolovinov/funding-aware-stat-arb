@@ -1,0 +1,59 @@
+{
+ "primary": "CROWD_72h",
+ "trades": 1396,
+ "by_capital": {
+  "1000000": {
+   "participation_median": 0.000369569356290674,
+   "participation_p95": 0.0022865451268429373,
+   "participation_max": 0.009305470850685138,
+   "extra_impact_ann": 0.04691199273705754,
+   "net_return_ann": 0.13644286019994636
+  },
+  "5000000": {
+   "participation_median": 0.00184784678145337,
+   "participation_p95": 0.011432725634214687,
+   "participation_max": 0.04652735425342569,
+   "extra_impact_ann": 0.1048984047200371,
+   "net_return_ann": 0.0784564482169668
+  },
+  "10000000": {
+   "participation_median": 0.00369569356290674,
+   "participation_p95": 0.022865451268429374,
+   "participation_max": 0.09305470850685138,
+   "extra_impact_ann": 0.14834874662637834,
+   "net_return_ann": 0.03500610631062556
+  },
+  "25000000": {
+   "participation_median": 0.00923923390726685,
+   "participation_p95": 0.057163628171073434,
+   "participation_max": 0.23263677126712845,
+   "extra_impact_ann": 0.23455996368528773,
+   "net_return_ann": -0.05120511074828382
+  },
+  "50000000": {
+   "participation_median": 0.0184784678145337,
+   "participation_p95": 0.11432725634214687,
+   "participation_max": 0.4652735425342569,
+   "extra_impact_ann": 0.33171788183347456,
+   "net_return_ann": -0.14836302889647066
+  },
+  "100000000": {
+   "participation_median": 0.0369569356290674,
+   "participation_p95": 0.22865451268429374,
+   "participation_max": 0.9305470850685138,
+   "extra_impact_ann": 0.46911992737057545,
+   "net_return_ann": -0.2857650744335716
+  }
+ },
+ "scenario": {
+  "model": "square-root impact, cost per unit traded = Y x sigma_daily x sqrt(participation)",
+  "Y": 1.0,
+  "sigma_daily": "std of daily returns over the 30 days before the decision",
+  "participation": "one-way traded notional / quote volume in the 24 h before the fill",
+  "charged": "on every one-way trade (entries, exits and resizing)",
+  "capital_denominator": "the scenario capital A (returns are per year of A)",
+  "overlap": "additive to the modeled 5 bps slippage, so it double-counts part of the spread cost (conservative)",
+  "status": "sensitivity scenario under an assumed impact model, not measured capacity"
+ },
+ "net_return_ann_modeled_costs": 0.1833548529370039
+}

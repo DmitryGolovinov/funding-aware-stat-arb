@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+data/raw/
+data/raw_transfer/
+data/panel/
+data/raw_metrics/
+data/download_ledger_metrics.json
+data/*.parquet
+results/demo/
+*.egg-info/

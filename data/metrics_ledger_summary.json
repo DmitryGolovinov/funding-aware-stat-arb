@@ -1,0 +1,198 @@
+{
+ "source": "https://data.binance.vision/data/futures/um/daily/metrics/",
+ "archives": 63837,
+ "bytes": 713157642,
+ "ledger_sha256": "8136c0020276a58390277dba318d1e1a563761f8933d9e2460d300fa4156b890",
+ "symbols": {
+  "1INCHUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "AAVEUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "ADAUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "ALGOUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "AVAXUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "BANDUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "BCHUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "BNBUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "BTCUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "COMPUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "CRVUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "DASHUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "DOTUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "EGLDUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "EOSUSDT": {
+   "files": 1332,
+   "first": "2021-12-01",
+   "last": "2026-05-05"
+  },
+  "ETCUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "ETHUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "FILUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "GRTUSDT": {
+   "files": 1733,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "LINKUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "LTCUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "MKRUSDT": {
+   "files": 1515,
+   "first": "2021-12-01",
+   "last": "2026-01-23"
+  },
+  "OMGUSDT": {
+   "files": 1283,
+   "first": "2021-12-01",
+   "last": "2025-06-05"
+  },
+  "SNXUSDT": {
+   "files": 1733,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "SUSHIUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "SXPUSDT": {
+   "files": 1548,
+   "first": "2021-12-01",
+   "last": "2026-02-25"
+  },
+  "THETAUSDT": {
+   "files": 1733,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "TRXUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "UNIUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "VETUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "WAVESUSDT": {
+   "files": 945,
+   "first": "2021-12-01",
+   "last": "2024-07-15"
+  },
+  "XLMUSDT": {
+   "files": 1733,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "XMRUSDT": {
+   "files": 1732,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "XRPUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "XTZUSDT": {
+   "files": 1733,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "YFIUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "ZECUSDT": {
+   "files": 1733,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  },
+  "ZILUSDT": {
+   "files": 1734,
+   "first": "2021-12-01",
+   "last": "2026-08-30"
+  }
+ }
+}

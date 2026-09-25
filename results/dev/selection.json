@@ -1,0 +1,17 @@
+{
+ "primary": "C_res_H21_mom_fund",
+ "primary_met_requirement": true,
+ "comparator_same_model_without_funding": "C_res_H21_mom_nofund",
+ "comparator_funding_only": "B_fund_L3_24h",
+ "best_A": "A_carry_BTC_static",
+ "best_B": "B_fund_L3_72h",
+ "primary_config": {
+  "id": "C_res_H21_mom_fund",
+  "family": "C",
+  "H": 21,
+  "mech": "momentum",
+  "funding": true
+ },
+ "protocol_sha256": "53c3f18a7aa2b28a14def16017d2bf2d0816302793566a8445249e64c99b4d96",
+ "written_utc": "2026-09-25T05:49:36+00:00"
+}

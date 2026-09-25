@@ -1,0 +1,78 @@
+# Funding-aware relative value, Generation 1. Written 2026-09-25 BEFORE any strategy outcome was
+# computed (no return, funding-sorted portfolio or carry P&L had been looked at). Changes after
+# this point are amendments with a timestamp in docs/protocol_amendments.md.
+question: >
+  Do perpetual-futures funding rates, alone or combined with market-residual returns, select
+  long/short positions whose returns stay positive after fees, slippage, funding and the cost of
+  capital, beyond a matched simple baseline and beyond the known carry premium?
+data:
+  source: data.binance.vision (Binance public archives, SHA-256 checked against .CHECKSUM files)
+  perp: USD-M linear perpetuals quoted in USDT, 1h klines (open, close, quote volume)
+  spot: BTCUSDT and ETHUSDT spot 1h klines (carry family only)
+  funding: monthly fundingRate archives (calc_time = settlement time in ms, funding_interval_hours, last_funding_rate)
+  settlement_price: perp 1h open of the settlement hour (the archive has no mark price; the funding cash error is rate x (mark - last), second order)
+  cash_rate: FRED DTB3 (3-month T-bill, secondary market, percent per year), for excess returns only
+pool:
+  formation: every USDT-quoted USD-M perpetual with a 1d kline archive for 2020-12, ranked by its 2020-12 quote volume; the top 40 form a fixed pool; later listings are excluded (no hindsight about later winners)
+  eligibility: at each decision, pool symbols with at least 60 days of hourly history and a bar in the 24 h before the decision, ranked by trailing 30-day quote volume; top 15 are eligible
+  delisting: when a symbol's data end, any position is closed at its last hourly close and the symbol leaves the universe (modeled; Binance announces delistings in advance)
+calendar:
+  warmup_from: "2020-11-01"
+  development: ["2021-01-01", "2023-12-31"]      # folds: calendar years 2021, 2022, 2023
+  final: ["2024-01-01", "2026-08-31"]            # evaluated once for the development-selected candidate
+  note: >
+    The final is held out from this study's design, but its calendar overlaps other portfolio
+    studies (BTC/ETH trade data 2023-2025; daily realized variance of 8 coins through 2026-08);
+    no funding-sorted or residual-return portfolio of any kind had been computed on it.
+execution:
+  decisions: {daily: "00:00 UTC", every_8h: ["00:00", "08:00", "16:00"], every_72h: "00:00 UTC every third day from 2021-01-01"}
+  information: klines whose close time is before the decision; funding settlements with calc_time before the decision
+  fill: open of the bar starting 1 h after the decision (modeled, not own fills)
+  costs_bps_per_side: {perp_taker_fee: 5.0, spot_taker_fee: 10.0, slippage_btc_eth: 2.0, slippage_other: 5.0}
+  no_maker_rebates: true
+  stresses: [costs x2, fill 2 h after the decision, carry perp leg filled one bar after the spot leg]
+capital:
+  long_short: >
+    equity is USDT collateral; target gross 1.0 x equity (long leg and short leg of equal gross
+    before beta scaling); legs rescaled to zero estimated beta subject to |net notional| <= 0.25
+    x equity; |w_i| <= 0.125; no-trade band: a name is traded only if its weight changes by more
+    than 0.02; returns on equity; idle cash earns 0 in the ledger; excess returns over DTB3 are
+    reported separately
+  carry: >
+    long q spot units and short q perp units (same underlying, USDT quotes); capital = spot
+    notional + a perp collateral reserve of 100% of perp notional (stress: 50%); units are reset
+    to the equity-implied target when they drift by more than 10% (checked daily); no inverse
+    (short spot) carry
+families:
+  A_carry:            # benchmark, a known premium: not alpha
+    assets: [BTC, ETH, BTC+ETH 50/50]
+    rules: [static, conditional (hold only if the trailing 7-day mean funding is positive)]
+  B_funding_xs:       # cross-sectional funding relative value
+    score: trailing mean funding rate per day over L days (interval-normalized)
+    direction: SHORT the top tercile, LONG the bottom tercile (receive funding; declared, not chosen on outcomes)
+    L_days: [1, 3, 7, 14]
+    rebalance: [8h, 24h, 72h]
+  C_residual_funding: # the incremental hypothesis
+    residual: sum of r_i - beta_i r_m over the last H days (beta from 60 daily returns against the equal-weight eligible market, past only)
+    H_days: [1, 3, 7, 21]
+    mechanism: [reversal (long losers), momentum (long winners)]   # both registered; chosen on development only
+    funding_term: [none, "z(-funding over 3 days) added to z(residual score)"]
+    rebalance: 24h
+    ml: one LightGBM ranker on [residual 1/3/7/21 d, funding 1/3/7 d, 30-day vol, beta] vs the same model without the funding features (expanding window, refit every 90 days)
+  trials: 36 full candidates (A 6, B 12, C 18); the budget is not reset after losses
+selection:
+  score: mean over development folds of annualized net Sharpe minus 0.5 x their standard deviation
+  requirement: net mean return positive in at least 2 of the 3 folds
+  primary: the best-scoring C candidate that uses funding; its comparators are the same C model without funding and the B candidate with the same rebalancing
+  final: frozen code, data, costs and command; the development-selected primary stays the reported primary whatever the final table shows; all candidates' final results are reported in an appendix with the primary's rank
+evaluation:
+  metrics: [annualized net return and excess return on capital, volatility, Sharpe (daily x sqrt(365)), max drawdown, 5% daily CVaR, turnover, gross/net/beta exposure, holding period, trades]
+  decomposition: [price, funding, fees, slippage]
+  uncertainty: date-block bootstrap (20-day blocks, 2000 draws) of mean daily return and of paired differences
+  attribution: OLS of daily returns on the equal-weight market, a 21-day cross-sectional momentum long/short and the funding long/short within the same universe (HAC, 5 lags); intercept = alpha relative to that model only
+  materiality: incremental net return of at least 2% a year on equity versus the matched comparator
+verdict:
+  INCREMENTAL_ALPHA_CANDIDATE: final net mean > 0 and the paired difference against the no-funding comparator > 0, both with 95% intervals excluding zero; attribution intercept t > 2; the increment is material
+  EXPLORATORY_CANDIDATE: positive point estimates that fail an interval or attribution condition
+  POSITIVE_PREMIUM_REPLICATION: carry or funding-only returns positive with an interval excluding zero, without a supported increment
+  NO_SUPPORTED_NET_EDGE: none of the above

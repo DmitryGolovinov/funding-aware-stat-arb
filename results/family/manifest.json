@@ -1,0 +1,26 @@
+{
+ "command": "python scripts/family_significance.py",
+ "environment": {
+  "packages": {
+   "lightgbm": "4.7.0",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "pyarrow": "25.0.1"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.3"
+ },
+ "inputs": {
+  "sp500_fred_sha256": "458da683a1444d200414b4296e06172e9918ade0f86a23d06d5da2fa638e2cdf"
+ },
+ "outputs": {
+  "daily.csv": "fe9a249fc8db2979b6f10705fd3fc8875efe54f4f0d5465fba4dd1599917b0bb",
+  "factors.csv": "6244c14208b19dc66a672e1b3ea3f71e5587d375333903687ddbd521a91cfd30",
+  "summary.json": "bd8fec7a6f290bec937d497753aa865780b060387a3b0b56f9085ce5ce62bf80"
+ },
+ "protocol_sha256": "53c3f18a7aa2b28a14def16017d2bf2d0816302793566a8445249e64c99b4d96",
+ "runtime_seconds": 6.680121833982412,
+ "source_tree_sha256": "7cf44a7fc44f0a55f07af5838832ee7fadf58344445549b520813684d4d366a3",
+ "study": "funding-aware-stat-arb / family-level significance",
+ "written_utc": "2026-09-25T05:53:55Z"
+}

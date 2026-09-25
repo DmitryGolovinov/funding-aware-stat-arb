@@ -1,0 +1,21 @@
+{
+ "command": "python scripts/capacity.py",
+ "environment": {
+  "packages": {
+   "lightgbm": "4.7.0",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "pyarrow": "25.0.1"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.3"
+ },
+ "metrics_daily_sha256": "8c290c5c6f7b8e241391c8298c179dedf62058e3d26d9c2549adc0378710d8b3",
+ "outputs": {
+  "summary.json": "19764b81e201a7dfc38332d1f069f071dee0d1c027d6b5e2bfbe4415bfa4ba5e"
+ },
+ "protocol_sha256": "c4fce1c4bf0e774c176632fe2607204ca75b9b352b459194545ab6cb03ad63e3",
+ "source_tree_sha256": "bf20a05330d345837316e657315cb765918f81c91d31e1b4829df051ee8cb185",
+ "study": "funding-aware-stat-arb / capacity of the Generation-2 primary",
+ "written_utc": "2026-09-25T06:23:10Z"
+}

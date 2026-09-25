@@ -1,0 +1,36 @@
+{
+ "command": "python scripts/run_study.py final --i-understand-this-is-the-final-evaluation",
+ "data_ledger_sha256": "909d791d3785417532ebee7b14922a5ac14a8560099875ac2b0fbbbf78e2f27d",
+ "environment": {
+  "packages": {
+   "lightgbm": "4.7.0",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "pyarrow": "25.0.1"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.3"
+ },
+ "mode": "final",
+ "outputs": {
+  "candidates.csv": "1afd11d837b897d4b1822175e9c189fe3fb2f84bfe783aa5aa3af585be1f7445",
+  "daily_A_carry_BTC_static.csv": "28f13994c31d1256a34bd649d47eb1d748d112e022cc8b6f295c3c9dc57cdaac",
+  "daily_B_fund_L3_24h.csv": "875b4b440251cea4e3a9cfa98465a5a030c6c958ce812881b325f9973a0b6364",
+  "daily_B_fund_L3_72h.csv": "225bebbb3fd33afada143b4b2210d81648d77bf91564961b4eb9de42f246b011",
+  "daily_C_res_H21_mom_fund.csv": "869bec1678f6f495d748585f4f90afb3c5c2b3ed349056d2f7d901c5af756ea8",
+  "daily_C_res_H21_mom_nofund.csv": "639903d051977fa4ff306ffb604f7a797568d78ec658588eb3d8c2d5a2e2df62",
+  "daily_returns.csv": "e818937feb8fdc3eb014e59070b0e10f4cbc15374aeba966add340f5df3aa498",
+  "factors.csv": "557eee62d859fb10f99a0cebd7d8e6bc3da0700ccb75a5cdcc0ed90e3ffb39fe",
+  "summary.json": "f5ba52c0b45cc2b202602b473967358e32eb6531f9900ccba1f5c09547fbc4e1"
+ },
+ "pool_sha256": "28d4dfd568b37661a88c89d73aaf0ffb88a4cdf64382869fe677e865e5631d32",
+ "protocol_sha256": "53c3f18a7aa2b28a14def16017d2bf2d0816302793566a8445249e64c99b4d96",
+ "runtime_seconds": 58.099516459042206,
+ "source_tree_sha256": "7cf44a7fc44f0a55f07af5838832ee7fadf58344445549b520813684d4d366a3",
+ "study": "funding-aware-stat-arb / Generation 1",
+ "window": [
+  "2024-01-01",
+  "2026-08-31"
+ ],
+ "written_utc": "2026-09-25T05:50:34Z"
+}

@@ -1,0 +1,37 @@
+# Generation 2: trader positioning. Written 2026-09-25 BEFORE any positioning (metrics) file was
+# downloaded or inspected. Changes after this point are amendments in docs/protocol_amendments.md.
+question: >
+  Do trader-positioning data (open interest, the long/short ratios of Binance's top traders and
+  of all accounts, taker buy/sell flow) select long/short perpetual positions that earn money
+  after all costs, with alpha beyond the funding-carry premium and known factors?
+data:
+  source: data.binance.vision futures/um/daily/metrics (5-minute rows; SHA-256 checked)
+  fields: [sum_open_interest_value, sum_toptrader_long_short_ratio (positions), count_long_short_ratio (all accounts), sum_taker_long_short_vol_ratio]
+  snapshot: the last row before 00:00 UTC of the decision day (the file of day d-1); taker flow is the day's mean log ratio
+  coverage: 2021-12-01..2026-08-31 for the study pool (same fixed pool and eligibility as Generation 1)
+calendar:
+  development: ["2022-01-01", "2023-12-31"]   # folds 2022, 2023
+  final: ["2024-01-01", "2026-08-31"]         # evaluated once for the development-selected candidate
+signals:  # cross-sectional z-scores among the eligible coins; portfolio: long the 5 highest, short the 5 lowest (Generation-1 construction, costs and limits)
+  OI: -(7-day log change of open-interest value minus the 7-day log price change)   # short leverage build-up
+  TOP: +log(top-trader long/short position ratio)                                     # follow large traders
+  CROWD: -log(all-account long/short ratio)                                           # trade against the crowd
+  GAP: +(log top-trader position ratio - log all-account ratio)                       # large traders more long than the crowd
+  FLOW_cont: +3-day mean log taker buy/sell ratio
+  FLOW_rev: -3-day mean log taker buy/sell ratio
+  COMPOSITE: mean of the OI, CROWD and GAP z-scores
+rebalance: [24h, 72h]
+trials: 14 (7 signals x 2 rebalancing frequencies); the budget is not reset after losses
+selection:
+  score: mean over the 2022 and 2023 folds of annualized net Sharpe minus 0.5 x their standard deviation
+  requirement: net mean return positive in both folds
+  primary: the best-scoring candidate meeting the requirement (else the best-scoring one, flagged)
+final:
+  primary evaluated once on 2024-01..2026-08; all 14 reported in an appendix
+attribution:
+  factors: [MKT, BTC, SPX, MOM, REV, LOWVOL, ILLIQ, CARRY, FUND]   # Generation-1 eight factors plus the 3-day funding long/short (funding included)
+  alpha: intercept with HAC (10 lags) t
+verdict:
+  INCREMENTAL_ALPHA_CANDIDATE: final net mean > 0 with a 95% block-bootstrap interval excluding zero, and nine-factor alpha t > 2
+  EXPLORATORY_CANDIDATE: positive final point estimates failing one of those conditions
+  NO_SUPPORTED_NET_EDGE: otherwise

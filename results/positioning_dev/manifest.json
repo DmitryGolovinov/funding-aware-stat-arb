@@ -1,0 +1,26 @@
+{
+ "command": "python scripts/run_positioning.py dev",
+ "environment": {
+  "packages": {
+   "lightgbm": "4.7.0",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "pyarrow": "25.0.1"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.3"
+ },
+ "metrics_daily_sha256": "8c290c5c6f7b8e241391c8298c179dedf62058e3d26d9c2549adc0378710d8b3",
+ "metrics_ledger_sha256": "8136c0020276a58390277dba318d1e1a563761f8933d9e2460d300fa4156b890",
+ "mode": "dev",
+ "outputs": {
+  "candidates.csv": "9a664bb3e180d1f86857dff8680f20d699b6fef0caac072c1af10db64627fdde",
+  "daily_returns.csv": "c47e327ba6075701b799517c4bdd93133d6b59698fe0edee2ef88c1c1a224877",
+  "selection.json": "149d41cfad7e3c88df861b07ab4416d13384e97826de801c4c5260b879cd4d4a"
+ },
+ "protocol_sha256": "c4fce1c4bf0e774c176632fe2607204ca75b9b352b459194545ab6cb03ad63e3",
+ "runtime_seconds": 7.096908750012517,
+ "source_tree_sha256": "bf20a05330d345837316e657315cb765918f81c91d31e1b4829df051ee8cb185",
+ "study": "funding-aware-stat-arb / Generation 2 positioning",
+ "written_utc": "2026-09-25T06:22:12Z"
+}

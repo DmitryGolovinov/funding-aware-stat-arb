@@ -1,0 +1,67 @@
+manifests: [results/dev/manifest.json, results/final/manifest.json, results/transfer/manifest.json, results/family/manifest.json, results/positioning_dev/manifest.json, results/positioning_final/manifest.json, results/capacity/manifest.json]
+claims:
+  - {id: dev_slow_sharpe, file: results/dev/candidates.csv, kind: csv, selector: {filter: {id: B_fund_L14_72h}, column: full_sharpe}, scale: 1, value: 1.57, decimals: 2, tol: 0.005}
+  - {id: dev_slow_ret, file: results/dev/candidates.csv, kind: csv, selector: {filter: {id: B_fund_L14_72h}, column: full_ann_return}, scale: 100, value: 44.7, decimals: 1, tol: 0.05}
+  - {id: dev_prim_sharpe, file: results/dev/candidates.csv, kind: csv, selector: {filter: {id: C_res_H21_mom_fund}, column: full_sharpe}, scale: 1, value: 0.69, decimals: 2, tol: 0.005}
+  - {id: dev_prim_ret, file: results/dev/candidates.csv, kind: csv, selector: {filter: {id: C_res_H21_mom_fund}, column: full_ann_return}, scale: 100, value: 18.4, decimals: 1, tol: 0.05}
+  - {id: dev_fast_sharpe, file: results/dev/candidates.csv, kind: csv, selector: {filter: {id: B_fund_L1_8h}, column: full_sharpe}, scale: 1, value: 1.07, decimals: 2, tol: 0.005}
+  - {id: dev_fast_ret, file: results/dev/candidates.csv, kind: csv, selector: {filter: {id: B_fund_L1_8h}, column: full_ann_return}, scale: 100, value: 28.4, decimals: 1, tol: 0.05}
+  - {id: dev_carry_sharpe, file: results/dev/candidates.csv, kind: csv, selector: {filter: {id: A_carry_BTC_static}, column: full_sharpe}, scale: 1, value: 6.2, decimals: 2, tol: 0.005}
+  - {id: dev_carry_ret, file: results/dev/candidates.csv, kind: csv, selector: {filter: {id: A_carry_BTC_static}, column: full_ann_return}, scale: 100, value: 6.8, decimals: 1, tol: 0.05}
+  - {id: fin_slow_sharpe, file: results/final/candidates.csv, kind: csv, selector: {filter: {id: B_fund_L14_72h}, column: sharpe}, scale: 1, value: 0.72, decimals: 2, tol: 0.005}
+  - {id: fin_slow_ret, file: results/final/candidates.csv, kind: csv, selector: {filter: {id: B_fund_L14_72h}, column: ann_return}, scale: 100, value: 19.6, decimals: 1, tol: 0.05}
+  - {id: fin_prim_sharpe, file: results/final/candidates.csv, kind: csv, selector: {filter: {id: C_res_H21_mom_fund}, column: sharpe}, scale: 1, value: 0.1, decimals: 2, tol: 0.005}
+  - {id: fin_prim_ret, file: results/final/candidates.csv, kind: csv, selector: {filter: {id: C_res_H21_mom_fund}, column: ann_return}, scale: 100, value: 6.2, decimals: 1, tol: 0.05}
+  - {id: fin_fast_sharpe, file: results/final/candidates.csv, kind: csv, selector: {filter: {id: B_fund_L1_8h}, column: sharpe}, scale: 1, value: -2.3, decimals: 2, tol: 0.005}
+  - {id: fin_fast_ret, file: results/final/candidates.csv, kind: csv, selector: {filter: {id: B_fund_L1_8h}, column: ann_return}, scale: 100, value: -39.4, decimals: 1, tol: 0.05}
+  - {id: fin_carry_sharpe, file: results/final/candidates.csv, kind: csv, selector: {filter: {id: A_carry_BTC_static}, column: sharpe}, scale: 1, value: -2.67, decimals: 2, tol: 0.005}
+  - {id: fin_carry_ret, file: results/final/candidates.csv, kind: csv, selector: {filter: {id: A_carry_BTC_static}, column: ann_return}, scale: 100, value: 3.4, decimals: 1, tol: 0.05}
+  - {id: inc_nofund, file: results/final/summary.json, kind: json, selector: increments.comparator_same_model_without_funding.ann_diff.0, scale: 100, value: 4.4, decimals: 1, tol: 0.05}
+  - {id: inc_nofund_lo, file: results/final/summary.json, kind: json, selector: increments.comparator_same_model_without_funding.ann_diff.1, scale: 100, value: -13.2, decimals: 1, tol: 0.05}
+  - {id: inc_nofund_hi, file: results/final/summary.json, kind: json, selector: increments.comparator_same_model_without_funding.ann_diff.2, scale: 100, value: 22.4, decimals: 1, tol: 0.05}
+  - {id: prim_alpha, file: results/final/summary.json, kind: json, selector: attribution.C_res_H21_mom_fund.alpha_ann, scale: 100, value: -9.2, decimals: 1, tol: 0.05}
+  - {id: prim_alpha_t, file: results/final/summary.json, kind: json, selector: attribution.C_res_H21_mom_fund.alpha_t, scale: 1, value: -1.2, decimals: 1, tol: 0.05}
+  - {id: tr_sharpe, file: results/transfer/summary.json, kind: json, selector: metrics.sharpe, scale: 1, value: 0.61, decimals: 2, tol: 0.005}
+  - {id: tr_ret, file: results/transfer/summary.json, kind: json, selector: metrics.ann_return, scale: 100, value: 20.5, decimals: 1, tol: 0.05}
+  - {id: tr_fund, file: results/transfer/summary.json, kind: json, selector: metrics.funding_ann, scale: 100, value: 13.6, decimals: 1, tol: 0.05}
+  - {id: tr_price, file: results/transfer/summary.json, kind: json, selector: metrics.price_ann, scale: 100, value: 11.8, decimals: 1, tol: 0.05}
+  - {id: tr_fee, file: results/transfer/summary.json, kind: json, selector: metrics.fee_ann, scale: 100, value: -2.5, decimals: 1, tol: 0.05}
+  - {id: tr_slip, file: results/transfer/summary.json, kind: json, selector: metrics.slip_ann, scale: 100, value: -2.5, decimals: 1, tol: 0.05}
+  - {id: tr_ci_lo, file: results/transfer/summary.json, kind: json, selector: metrics.mean_ci.1, scale: 100, value: -7.7, decimals: 1, tol: 0.05}
+  - {id: tr_ci_hi, file: results/transfer/summary.json, kind: json, selector: metrics.mean_ci.2, scale: 100, value: 55.6, decimals: 1, tol: 0.05}
+  - {id: tr_alpha, file: results/transfer/summary.json, kind: json, selector: attribution_mkt_mom.alpha_ann, scale: 100, value: 21.6, decimals: 1, tol: 0.05}
+  - {id: tr_alpha_t, file: results/transfer/summary.json, kind: json, selector: attribution_mkt_mom.alpha_t, scale: 1, value: 1.33, decimals: 2, tol: 0.005}
+  - {id: fam_ret, file: results/family/summary.json, kind: json, selector: periods.2021-2026.ann_return, scale: 100, value: 23.8, decimals: 1, tol: 0.05}
+  - {id: fam_alpha, file: results/family/summary.json, kind: json, selector: periods.2021-2026.alpha_ann, scale: 100, value: 21.9, decimals: 1, tol: 0.05}
+  - {id: fam_alpha_t, file: results/family/summary.json, kind: json, selector: periods.2021-2026.alpha_t, scale: 1, value: 2.52, decimals: 2, tol: 0.005}
+  - {id: fam_dev_alpha, file: results/family/summary.json, kind: json, selector: periods.2021-2023.alpha_ann, scale: 100, value: 38.3, decimals: 1, tol: 0.05}
+  - {id: fam_dev_alpha_t, file: results/family/summary.json, kind: json, selector: periods.2021-2023.alpha_t, scale: 1, value: 2.86, decimals: 2, tol: 0.005}
+  - {id: fam_fin_alpha, file: results/family/summary.json, kind: json, selector: periods.2024-2026.alpha_ann, scale: 100, value: 3.4, decimals: 1, tol: 0.05}
+  - {id: fam_fin_alpha_t, file: results/family/summary.json, kind: json, selector: periods.2024-2026.alpha_t, scale: 1, value: 0.33, decimals: 2, tol: 0.005}
+  - {id: f7_alpha, file: results/family/summary.json, kind: json, selector: periods.2021-2026.seven_factor_no_carry.alpha_ann, scale: 100, value: 25.2, decimals: 1, tol: 0.05}
+  - {id: f7_alpha_t, file: results/family/summary.json, kind: json, selector: periods.2021-2026.seven_factor_no_carry.alpha_t, scale: 1, value: 2.89, decimals: 2, tol: 0.005}
+  - {id: f8_alpha, file: results/family/summary.json, kind: json, selector: periods.2021-2026.eight_factor.alpha_ann, scale: 100, value: 4.3, decimals: 1, tol: 0.05}
+  - {id: f8_alpha_t, file: results/family/summary.json, kind: json, selector: periods.2021-2026.eight_factor.alpha_t, scale: 1, value: 0.46, decimals: 2, tol: 0.005}
+  - {id: f7_dev_alpha, file: results/family/summary.json, kind: json, selector: periods.2021-2023.seven_factor_no_carry.alpha_ann, scale: 100, value: 41.4, decimals: 1, tol: 0.05}
+  - {id: f7_dev_alpha_t, file: results/family/summary.json, kind: json, selector: periods.2021-2023.seven_factor_no_carry.alpha_t, scale: 1, value: 3.09, decimals: 2, tol: 0.005}
+  - {id: f7_fin_alpha, file: results/family/summary.json, kind: json, selector: periods.2024-2026.seven_factor_no_carry.alpha_ann, scale: 100, value: 7.6, decimals: 1, tol: 0.05}
+  - {id: f7_fin_alpha_t, file: results/family/summary.json, kind: json, selector: periods.2024-2026.seven_factor_no_carry.alpha_t, scale: 1, value: 0.73, decimals: 2, tol: 0.005}
+  - {id: g2_ret, file: results/positioning_final/summary.json, kind: json, selector: primary_metrics.ann_return, scale: 100, value: 18.3, decimals: 1, tol: 0.05}
+  - {id: g2_excess, file: results/positioning_final/summary.json, kind: json, selector: primary_metrics.ann_excess, scale: 100, value: 14.2, decimals: 1, tol: 0.05}
+  - {id: g2_sharpe, file: results/positioning_final/summary.json, kind: json, selector: primary_metrics.sharpe, scale: 1, value: 0.72, decimals: 2, tol: 0.005}
+  - {id: g2_ci_lo, file: results/positioning_final/summary.json, kind: json, selector: primary_metrics.mean_ci.1, scale: 100, value: -11.2, decimals: 1, tol: 0.05}
+  - {id: g2_ci_hi, file: results/positioning_final/summary.json, kind: json, selector: primary_metrics.mean_ci.2, scale: 100, value: 44.8, decimals: 1, tol: 0.05}
+  - {id: g2_alpha, file: results/positioning_final/summary.json, kind: json, selector: attribution_9f.alpha_ann, scale: 100, value: 27.3, decimals: 1, tol: 0.05}
+  - {id: g2_alpha_t, file: results/positioning_final/summary.json, kind: json, selector: attribution_9f.alpha_t, scale: 1, value: 2.33, decimals: 2, tol: 0.005}
+  - {id: g2_fund_load, file: results/positioning_final/summary.json, kind: json, selector: attribution_9f.FUND_coef, scale: 1, value: 0.01, decimals: 2, tol: 0.005}
+  - {id: g2_costs2, file: results/positioning_final/summary.json, kind: json, selector: stresses.costs_x2.ann_return, scale: 100, value: 13.5, decimals: 1, tol: 0.05}
+  - {id: cap_1m, file: results/capacity/summary.json, kind: json, selector: by_capital.1000000.net_return_ann, scale: 100, value: 13.6, decimals: 1, tol: 0.05}
+  - {id: cap_5m, file: results/capacity/summary.json, kind: json, selector: by_capital.5000000.net_return_ann, scale: 100, value: 7.8, decimals: 1, tol: 0.05}
+  - {id: cap_10m, file: results/capacity/summary.json, kind: json, selector: by_capital.10000000.net_return_ann, scale: 100, value: 3.5, decimals: 1, tol: 0.05}
+  - {id: g2_lag1d, file: results/positioning_final/summary.json, kind: json, selector: stresses.positioning_lag_1d.ann_return, scale: 100, value: 25.0, decimals: 1, tol: 0.05}
+  - {id: g2_fund_t, file: results/positioning_final/summary.json, kind: json, selector: attribution_9f.FUND_t, scale: 1, value: 0.18, decimals: 2, tol: 0.005}
+  - {id: g2_dev_sharpe, file: results/positioning_dev/candidates.csv, kind: csv, selector: {filter: {id: CROWD_72h}, column: full_sharpe}, scale: 1, value: 0.76, decimals: 2, tol: 0.005}
+  - {id: g2_dev_ret, file: results/positioning_dev/candidates.csv, kind: csv, selector: {filter: {id: CROWD_72h}, column: full_ann_return}, scale: 100, value: 19.5, decimals: 1, tol: 0.05}
+  - {id: cfg_net_cap, kind: external, value: 0.25, decimals: 2, source: "configs/alpha_protocol.yaml capital.long_short (|net notional| <= 0.25 x equity)"}
+  - {id: cfg_gross, kind: external, value: 1.0, decimals: 1, source: "configs/alpha_protocol.yaml capital.long_short (target gross 1.0 x equity)"}
+  - {id: cfg_w_cap, kind: external, value: 0.125, decimals: 3, source: "configs/alpha_protocol.yaml capital.long_short (|w_i| <= 0.125)"}

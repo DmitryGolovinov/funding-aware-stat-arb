@@ -1,0 +1,23 @@
+{
+ "command": "python scripts/transfer_test.py",
+ "data_ledger_sha256": "b99d5100dda973a5bed7e144f709b0159188ff1a3db30d32e3e662e0d187154d",
+ "environment": {
+  "packages": {
+   "lightgbm": "4.7.0",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "pyarrow": "25.0.1"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "python": "3.11.3"
+ },
+ "outputs": {
+  "daily.csv": "43c9e98fa99a67a4fbf81cc4977f3c5afd360522704bd570c0efc1bd5032a98e",
+  "summary.json": "3c85a0fd9516c5c4539e38024a37dd9d9cc53f887e7d0c1ab4fa42f7f3bb5ad8"
+ },
+ "protocol_sha256": "53c3f18a7aa2b28a14def16017d2bf2d0816302793566a8445249e64c99b4d96",
+ "runtime_seconds": 193.04322812496684,
+ "source_tree_sha256": "7cf44a7fc44f0a55f07af5838832ee7fadf58344445549b520813684d4d366a3",
+ "study": "funding-aware-stat-arb / G1b transfer test",
+ "written_utc": "2026-09-25T05:53:48Z"
+}
