@@ -15,6 +15,7 @@ reproduce:   ## development selection, final evaluation, transfer test, report
 	$(PY) scripts/make_report.py
 report:
 	$(PY) scripts/make_report.py
+	$(PY) scripts/plot_positioning.py
 check: test
 	$(PY) -m ruff check src scripts tests
 	$(PY) scripts/check_claims.py
@@ -25,3 +26,4 @@ reproduce-positioning:  ## Generation 2 development selection and final evaluati
 	$(PY) scripts/run_positioning.py final --i-understand-this-is-the-final-evaluation
 	$(PY) scripts/capacity.py
 	$(PY) scripts/make_report.py
+	$(PY) scripts/plot_positioning.py
